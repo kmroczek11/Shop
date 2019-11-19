@@ -1,0 +1,43 @@
+MySqlConnection connect() {
+            string myconnection =
+               "SERVER=server;" +
+               "DATABASE=database;" +
+               "UID=user;" +
+               "PASSWORD=password;";
+
+            MySqlConnection connection = new MySqlConnection(myconnection);
+
+            try {
+
+                connection.Open();
+                Console.WriteLine("Connected");
+                return connection;
+                
+            } catch (MySql.Data.MySqlClient.MySqlException ex) {
+                Console.WriteLine("Error");
+            }
+            return null;
+        }
+    
+        public void insert(string value1, string value2, string value3,...) {
+     
+            MySqlConnection conn = connect();
+            if (conn == null) return -1;
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "INSERT INTO table (column1, column2, column3,...) VALUES ('"+value1+"', '"+value2+"', '"+value2+"',...)";
+            
+            command.ExecuteNonQuery();
+        }
+
+        public int reader(string value1, string value2, string value3,...) {
+            MySqlConnection conn = connect();
+            if (conn == null) return -1;
+            MySqlCommand command = conn.CreateCommand();
+      
+            command.CommandText = "SELECT * FROM table WHERE column1='"+value1+"' AND column2='"+value2+"' OR column3='"+value3+"'";
+            MySqlDataReader reader = command.ExecuteReader();
+            while( reader.Read()) {
+                return (int)reader["ID"];
+            }
+            return -1;
+        }

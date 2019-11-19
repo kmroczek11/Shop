@@ -1,0 +1,16 @@
+1. Pobraæ ze strony producenta MySQL i zainstalowaæ:
+- connector.NET
+- connector VisualStudio
+
+W projekcie typu WebForm:
+2. Solution explorer->Reference->Add->Extensions->MySql.Data i MySql.Web
+
+W projekcie typu WebSite:
+2. Solution explorer->Add->Reference->Extensions->MySql.Data i MySql.Web
+
+3. W projekcie dodaæ biblioteki:
+- MySql.Data
+- MySql.Data.MySqlClient
+
+4. Przyk³ady:
+https://www.youtube.com/watch?v=O27jl60NvQc
