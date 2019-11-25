@@ -39,7 +39,8 @@ namespace Shop
                     if (noRows == 1)
                     {
                         //lblSuccessMessage.Text = "Zalogowano pomyślnie";
-                        Global.login = tbLogin.Text;
+                        //Global.login = tbLogin.Text;
+                        Session["Login"] = tbLogin.Text;
                         Response.Redirect("UserForm.aspx");
                     }
                     else

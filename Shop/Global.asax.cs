@@ -10,7 +10,7 @@ namespace Shop
 {
     public class Global : System.Web.HttpApplication
     {
-        public static String login = "";
+        public static String login = "Kamil";
 
         protected void Application_Start(object sender, EventArgs e)
         {

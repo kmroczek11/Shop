@@ -12,6 +12,14 @@
         <div>
             <asp:Label ID="lbLogin" runat="server"></asp:Label>
         </div>
+           <asp:GridView ID="gvProduct" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField DataField="product" HeaderText="Produkt" />
+                    <asp:BoundField DataField="price" HeaderText="Cena" />
+                    <asp:BoundField DataField="count" HeaderText="Ilość" />
+                    <asp:BoundField DataField="description" HeaderText="Opis" />
+                </Columns>
+            </asp:GridView>
     </form>
 </body>
 </html>
