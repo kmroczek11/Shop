@@ -22,24 +22,12 @@ namespace Shop
             //lbLogin.Text = Global.login;
             lbLogin.Text = "Witaj " + Session["Login"];
 
-            if (!IsPostBack)
-            {
-                GridFill();
-            }
+            
         }
 
-        void GridFill()
+        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
-            {
-                sqlCon.Open();
-                MySqlDataAdapter sqlData = new MySqlDataAdapter("ProductViewAll", sqlCon);
-                sqlData.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                DataTable dtbl = new DataTable();
-                sqlData.Fill(dtbl);
-                gvProduct.DataSource = dtbl;
-                gvProduct.DataBind();
-            }
+
         }
     }
 }
