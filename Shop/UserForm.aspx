@@ -12,6 +12,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
+            text-align:center;
         }
         .auto-style2 {
             text-align: center;
@@ -47,11 +48,17 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Cena:
+                        <td class="auto-style2">Dostępnych sztuk na magazynie
                             <asp:Label ID="lbCount" runat="server" Text='<%# Eval("count") %>'></asp:Label>
-                            &nbsp;x
+                            <br />
+                            Cena
                             <asp:Label ID="lbPrice" runat="server" Text='<%# Eval("price") %>'></asp:Label>
                             &nbsp;zł</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button OnClick="add_to_cart" ID="addToCart" runat="server" Text="Dodaj do koszyka" />
+                        </td>
                     </tr>
                 </table>
 <br />

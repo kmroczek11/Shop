@@ -172,8 +172,6 @@ C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\roslyn\vbc.rsp
 C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\roslyn\VBCSCompiler.exe
 C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\MySql.Data.dll
-C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\MySql.Web.dll
 C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\Google.Protobuf.dll
 C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\BouncyCastle.Crypto.dll
 C:\Users\Kamil\source\repos\Shop\Shop\Shop\bin\Renci.SshNet.dll
@@ -247,3 +245,5 @@ C:\Users\Miszla\Source\Repos\Shop\Shop\obj\Debug\Shop.csprojAssemblyReference.ca
 C:\Users\Miszla\Source\Repos\Shop\Shop\obj\Debug\Shop.csproj.CopyComplete
 C:\Users\Miszla\Source\Repos\Shop\Shop\obj\Debug\Shop.dll
 C:\Users\Miszla\Source\Repos\Shop\Shop\obj\Debug\Shop.pdb
+C:\Users\kamil\source\repos\Shop\Shop\Shop\bin\MySql.Data.dll
+C:\Users\kamil\source\repos\Shop\Shop\Shop\bin\MySql.Web.dll

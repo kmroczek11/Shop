@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,15 +20,18 @@ namespace Shop
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //lbLogin.Text = Global.login;
             lbLogin.Text = "Witaj " + Session["Login"];
-
-            
+            Cart cart = new Cart();
         }
 
         protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void add_to_cart(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Add to cart");
         }
     }
 }
