@@ -7,17 +7,17 @@ namespace Shop
 {
     public class Product
     {
-        public Product(string name, double price, string imageUrl, int quantity)
+        public Product(int id, string name, double price, string imageUrl)
         {
+            this.id = id;
             this.name = name;
             this.price = price;
             this.imageUrl = imageUrl;
-            this.quantity = quantity;
         }
 
+        public int id { get; set; }
         public string name { get; set; }
         public double price { get; set; }
         public string imageUrl { get; set; }
-        public int quantity { get; set; }
     }
 }

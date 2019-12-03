@@ -7,13 +7,11 @@
 // </generowany automatycznie>
 //------------------------------------------------------------------------------
 
-namespace Shop
-{
-
-
-    public partial class UserForm
-    {
-
+namespace Shop {
+    
+    
+    public partial class UserForm {
+        
         /// <summary>
         /// Kontrolka form1.
         /// </summary>
@@ -22,7 +20,16 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
+        /// <summary>
+        /// Kontrolka cardProducts.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table cardProducts;
+        
         /// <summary>
         /// Kontrolka lbLogin.
         /// </summary>
@@ -31,7 +38,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbLogin;
-
+        
         /// <summary>
         /// Kontrolka DataList1.
         /// </summary>
@@ -40,7 +47,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList DataList1;
-
+        
         /// <summary>
         /// Kontrolka SqlDataSource1.
         /// </summary>

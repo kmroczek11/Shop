@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -9,20 +10,25 @@ namespace Shop
     {
         public List<Product> products = new List<Product>();
 
-        public void addToCart(Product product) {
+        public void addToCart(Product product)
+        {
             products.Add(product);
+            Debug.WriteLine("Dodano: " + product.name);
         }
 
-        public void removeFromCart(Product product)
+        public void removeFromCart(int id)
         {
-            products.Remove(product);
+            for (int i = 0; i < products.Count(); i++)
+            {
+                if (products[i].id == id) products.Remove(products[i]);
+            }
         }
 
         public void showCart()
         {
-            foreach (object product in products)
+            foreach (Product product in products)
             {
-                Console.WriteLine(product);
+                Debug.WriteLine(product.name);
             }
         }
 
