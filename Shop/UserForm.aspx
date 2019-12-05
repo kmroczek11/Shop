@@ -29,6 +29,8 @@
     </script>
 </head>
 <body>
+    <form id="form1" runat="server">
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,13 +40,17 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <asp:ImageButton ID="ImageButton1" runat="server" Height="30px" ImageUrl="~/Assets/shopping-cart.svg" ImageAlign="Middle"/>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Other</a>
+                    <asp:HyperLink ID="NavLink1" runat="server" NavigateUrl="<% %>" CssClass="nav-link">Logout</asp:HyperLink>
                 </li>
             </ul>
         </div>
     </nav>
-    <form id="form1" runat="server">
 
         <!-- Modal Popup -->
         <div id="MyPopup" class="modal fade" tabindex="-1" role="dialog">
@@ -57,13 +63,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <table style="text-align:center;width:100%">
+                        <table style="text-align: center; width: 100%">
                             <tr>
-                                <td class="name"/>
+                                <td class="name" />
                                 <td>
-                                    <img class="cover" width="50" height="80" src="none"/>
+                                    <img class="cover" width="50" height="80" src="none" />
                                 </td>
-                                <td class="price"/>
+                                <td class="price" />
                             </tr>
                         </table>
                         <hr />
@@ -71,7 +77,7 @@
                         <asp:Table CellPadding="4" ID="cardProducts" runat="server"></asp:Table>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button onClick="addToCart" class="btn btn-primary" text="Dodaj" runat="server"/>
+                        <asp:Button OnClick="addToCart" class="btn btn-primary" Text="Dodaj" runat="server" CssClass="btn btn-primary" />
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
                     </div>
                 </div>
@@ -79,11 +85,13 @@
         </div>
         <!-- Modal Popup -->
 
-        <div>
-            <asp:Label ID="lbLogin" runat="server"></asp:Label>
+        <div style="text-align: center">
+            <div style="height: 20px">
+            </div>
+            <asp:Label ID="lbLogin" runat="server" CssClass="h2 font-weight-bold"></asp:Label>
         </div>
         <br />
-        <asp:DataList ID="DataList1" runat="server" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" DataKeyField="productid" DataSourceID="SqlDataSource1" RepeatColumns="4" RepeatDirection="Horizontal">
+        <asp:DataList ID="DataList1" runat="server" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" DataKeyField="productid" DataSourceID="SqlDataSource1" RepeatColumns="4" RepeatDirection="Horizontal" CssClass="table">
             <ItemTemplate>
                 <table class="table">
                     <tr>
@@ -111,7 +119,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style2">
-                            <asp:Button CommandArgument='<%# Eval("productid") %>' OnClick="openCart" ID="addToCart" runat="server" Text="Dodaj do koszyka" />
+                            <asp:Button CommandArgument='<%# Eval("productid") %>' OnClick="openCart" ID="addToCart" runat="server" Text="Dodaj do koszyka" CssClass="btn btn-primary" />
                         </td>
                     </tr>
                 </table>
