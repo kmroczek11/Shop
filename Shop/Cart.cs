@@ -24,6 +24,11 @@ namespace Shop
             }
         }
 
+        public int getSizeOfCart()
+        {
+            return products.Count;
+        }
+
         public void showCart()
         {
             foreach (Product product in products)

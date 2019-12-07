@@ -10,16 +10,42 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="Scripts/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
-    <!--<script src="Scripts/popper.min.js"></script>-->
-
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style type="text/css">
         .auto-style2 {
             text-align: center;
         }
+
+        .messagealert {
+            width: 100%;
+            position: fixed;
+            top: 0px;
+            z-index: 100000;
+            padding: 0;
+            font-size: 15px;
+        }
     </style>
     <script type="text/javascript">
+        function ShowMessage(message, messagetype) {
+            var cssclass;
+            switch (messagetype) {
+                case 'Success':
+                    cssclass = 'alert-success'
+                    break;
+                case 'Error':
+                    cssclass = 'alert-danger'
+                    break;
+                case 'Warning':
+                    cssclass = 'alert-warning'
+                    break;
+                default:
+                    cssclass = 'alert-info'
+            }
+            $('#alert_container').append('<div id="alert_div" style="margin: 0 0.5%; -webkit-box-shadow: 3px 4px 6px #999;" class="alert fade in ' + cssclass + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span>' + message + '</span></div>');
+        }
+
         function ShowPopup(name, price, url) {
             $(".name").html(name);
             $(".price").html(price);
@@ -29,22 +55,31 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Other</a>
-                </li>
-            </ul>
+    <form id="userForm" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <asp:Button OnClick="logout" Text="Wyloguj" runat="server" />
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="messagealert" id="alert_container">
         </div>
-    </nav>
-    <form id="form1" runat="server">
+
+        <div class="MessagePanelDiv">
+            <asp:Panel ID="Message" runat="server" CssClass="hidepanel">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <asp:Label ID="labelMessage" runat="server" />
+            </asp:Panel>
+        </div>
 
         <!-- Modal Popup -->
         <div id="MyPopup" class="modal fade" tabindex="-1" role="dialog">
@@ -57,13 +92,17 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <table style="text-align:center;width:100%">
+                        <table style="text-align: center; width: 100%">
                             <tr>
-                                <td class="name"/>
+                                <td class="name" />
                                 <td>
-                                    <img class="cover" width="50" height="80" src="none"/>
+                                    <img class="cover" width="50" height="80" src="none" />
                                 </td>
-                                <td class="price"/>
+                                <td class="price" />
+                                <td>
+                                    <select id="selectQuantity" runat="server">
+                                    </select>
+                                </td>
                             </tr>
                         </table>
                         <hr />
@@ -71,7 +110,8 @@
                         <asp:Table CellPadding="4" ID="cardProducts" runat="server"></asp:Table>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button onClick="addToCart" class="btn btn-primary" text="Dodaj" runat="server"/>
+                        <asp:Button OnClick="order" class="btn btn-primary" Text="Zamów" runat="server" />
+                        <asp:Button OnClick="addToCart" class="btn btn-primary" Text="Dodaj" runat="server" />
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
                     </div>
                 </div>
@@ -83,7 +123,7 @@
             <asp:Label ID="lbLogin" runat="server"></asp:Label>
         </div>
         <br />
-        <asp:DataList ID="DataList1" runat="server" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" DataKeyField="productid" DataSourceID="SqlDataSource1" RepeatColumns="4" RepeatDirection="Horizontal">
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="productid" DataSourceID="SqlDataSource1" RepeatColumns="4" RepeatDirection="Horizontal">
             <ItemTemplate>
                 <table class="table">
                     <tr>

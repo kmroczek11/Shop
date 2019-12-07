@@ -1,12 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Shop
 {
@@ -36,11 +30,12 @@ namespace Shop
                     sqlCmd.Parameters.AddWithValue("_login", tbLogin.Text.Trim());
                     sqlCmd.Parameters.AddWithValue("_password", tbPassword.Text.Trim());
                     var noRows = (long)sqlCmd.ExecuteScalar();
-                    if (noRows == 1)
+                    if (noRows > 0)
                     {
                         //lblSuccessMessage.Text = "Zalogowano pomyślnie";
                         //Global.login = tbLogin.Text;
-                        Session["Login"] = tbLogin.Text;
+                        string login = tbLogin.Text;
+                        Session["Login"] = login;
                         Response.Redirect("UserForm.aspx");
                     }
                     else
