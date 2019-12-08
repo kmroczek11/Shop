@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Shop
 {
-    public partial class HomeForm : System.Web.UI.Page
+    public partial class AdminProductsForm : System.Web.UI.Page
     {
         string connectionString = "Server=localhost;" +
                 //"Port=8080;" + 
@@ -29,7 +30,7 @@ namespace Shop
         void Clear()
         {
             hfProductID.Value = "";
-            txtProduct.Text = txtPrice.Text = txtCount.Text = txtDescription.Text = "";
+            txtProduct.Text = txtPrice.Text = txtCount.Text = txtDescription.Text = txtImage.Text = "";
             btnSave.Text = "Zapisz";
             btnDelete.Enabled = false;
             lblErrorMessage.Text = lblSuccessMessage.Text = "";
@@ -63,10 +64,11 @@ namespace Shop
                     sqlCmd.Parameters.AddWithValue("_price", Convert.ToDecimal(txtPrice.Text.Trim()));
                     sqlCmd.Parameters.AddWithValue("_count", Convert.ToInt32(txtCount.Text.Trim()));
                     sqlCmd.Parameters.AddWithValue("_description", txtDescription.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("_image", txtImage.Text.Trim());
                     sqlCmd.ExecuteNonQuery();
                     GridFill();
                     Clear();
-                    lblSuccessMessage.Text = "Dodano pomyślnie";
+                    lblSuccessMessage.Text = "Operacja powiodła się";
                 }
             }
             catch (Exception ex)
@@ -91,10 +93,11 @@ namespace Shop
                 txtPrice.Text = dtbl.Rows[0][2].ToString();
                 txtCount.Text = dtbl.Rows[0][3].ToString();
                 txtDescription.Text = dtbl.Rows[0][4].ToString();
+                txtImage.Text = dtbl.Rows[0][5].ToString();
 
                 hfProductID.Value = dtbl.Rows[0][0].ToString();
 
-                btnSave.Text = "Update";
+                btnSave.Text = "Aktualizuj";
                 btnDelete.Enabled = true;
             }
         }
@@ -112,6 +115,27 @@ namespace Shop
                 Clear();
                 lblSuccessMessage.Text = "Usunięto pomyślnie";
             }
+        }
+
+        protected void findProduct(object sender, System.EventArgs e)
+        {
+            Debug.WriteLine("Szukanie produktu...");
+            using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                MySqlDataAdapter sqlData = new MySqlDataAdapter("ProductFindByName", sqlCon);
+                sqlData.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlData.SelectCommand.Parameters.AddWithValue("_product", "%" + txtFind.Text + "%");
+                DataTable dtbl = new DataTable();
+                sqlData.Fill(dtbl);
+                gvFindProducts.DataSource = dtbl;
+                gvFindProducts.DataBind();
+            }
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }

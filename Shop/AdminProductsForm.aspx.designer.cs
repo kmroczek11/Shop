@@ -10,7 +10,7 @@
 namespace Shop {
     
     
-    public partial class HomeForm {
+    public partial class AdminProductsForm {
         
         /// <summary>
         /// Kontrolka main.
@@ -67,6 +67,15 @@ namespace Shop {
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
+        /// Kontrolka txtImage.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtImage;
+        
+        /// <summary>
         /// Kontrolka btnSave.
         /// </summary>
         /// <remarks>
@@ -119,5 +128,32 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvProduct;
+        
+        /// <summary>
+        /// Kontrolka txtFind.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFind;
+        
+        /// <summary>
+        /// Kontrolka btnFind.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFind;
+        
+        /// <summary>
+        /// Kontrolka gvFindProducts.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvFindProducts;
     }
 }
