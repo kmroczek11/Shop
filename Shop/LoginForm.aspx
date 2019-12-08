@@ -12,7 +12,7 @@
     <script src="Scripts/popper.min.js"></script>
 </head>
 <body>
-    <form id="loginForm" runat="server" style="width: 500px; margin: 50px auto">
+    <form id="loginForm" runat="server" style="width: 50%; margin: 50px auto">
         <div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Login</label>
@@ -35,7 +35,8 @@
             <div class="col text-center">
                 <asp:Button ID="btLogin" runat="server" Text="Zaloguj" OnClick="btLogin_Click" CssClass="btn btn-primary" />
             </div>
-            <asp:HyperLink ID="NavLink1" runat="server" NavigateUrl="RegisterForm.aspx">Nie masz jeszcze konta? Zarejestruj się</asp:HyperLink>
+            <br />
+            <asp:HyperLink ID="NavLink1" runat="server" NavigateUrl="RegisterForm.aspx" CssClass="card-link">Nie masz jeszcze konta? Zarejestruj się</asp:HyperLink>
         </div>
     </form>
 </body>

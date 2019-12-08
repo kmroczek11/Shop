@@ -13,80 +13,88 @@
 </head>
 <body>
     <form id="main" runat="server">
-        <div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"> <a class="nav-link" href="AdminUsersForm.aspx">Users<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"> <a class="nav-link" href="AdminOrdersForm.aspx">Orders<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"> <a class="nav-link" href="AdminProductsForm.aspx">Products<span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div style="width: 50%; margin: 50px auto">
             <asp:HiddenField ID="hfUserID" runat="server" />
-            <table>
-                <tr>
-                    <td>
-                        <asp:Label Text="Login" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtLogin" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Hasło" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtPassword" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Miasto" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtCity" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Płeć" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtGender" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Email" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtEmail" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Admin" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtAdmin" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <asp:Button Text="Zapisz" ID="btnSave" runat="server" OnClick="btnSave_Click" />
-                        <asp:Button Text="Usuń" ID="btnDelete" runat="server" OnClick="btnDelete_Click" />
-                        <asp:Button Text="Wyczyść" ID="btnClear" runat="server" OnClick="btnClear_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <asp:Label Text="" ID="lblSuccessMessage" runat="server" ForeColor="Green" />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <asp:Label Text="" ID="lblErrorMessage" runat="server" ForeColor="Red" />
-                    </td>
-                </tr>
-            </table>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Login
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtLogin" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Hasło
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Miasto
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtCity" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Płeć
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtGender" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Email
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    <asp:Label Text="Admin" runat="server" />
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtAdmin" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="ml-auto">
+                    <asp:Button Text="Zapisz" ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-primary" />
+                    <asp:Button Text="Usuń" ID="btnDelete" runat="server" OnClick="btnDelete_Click" CssClass="btn btn-primary" />
+                    <asp:Button Text="Wyczyść" ID="btnClear" runat="server" OnClick="btnClear_Click" CssClass="btn btn-primary" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <asp:Label Text="" ID="lblSuccessMessage" runat="server" CssClass="form-text text-success" />
+            </div>
+            <div class="form-group row">
+                <asp:Label Text="" ID="lblErrorMessage" runat="server" CssClass="form-text text-danger" />
+            </div>
             <br />
-            <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="false">
+        </div>
+        <div style="width: 80%; margin: 50px auto">
+            <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-hover">
                 <Columns>
                     <asp:BoundField DataField="login" HeaderText="Login" />
                     <asp:BoundField DataField="password" HeaderText="Hasło" />
@@ -96,7 +104,7 @@
                     <asp:BoundField DataField="isAdmin" HeaderText="Prawa admina" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton Text="Select" ID="lnkSelect" CommandArgument='<%# Eval("UserID") %>' runat="server" OnClick="lnkSelect_OnClick" />
+                            <asp:LinkButton Text="Select" ID="lnkSelect" CommandArgument='<%# Eval("UserID") %>' runat="server" OnClick="lnkSelect_OnClick" CssClass="card-link"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

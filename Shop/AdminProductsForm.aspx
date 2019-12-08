@@ -13,72 +13,100 @@
 </head>
 <body>
     <form id="main" runat="server">
-        <div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"> <a class="nav-link" href="AdminUsersForm.aspx">Users<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"> <a class="nav-link" href="AdminOrdersForm.aspx">Orders<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item active"> <a class="nav-link" href="AdminProductsForm.aspx">Products<span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div style="width: 50%; margin: 50px auto">
             <asp:HiddenField ID="hfProductID" runat="server" />
-            <table>
-                <tr>
-                    <td>
-                        <asp:Label Text="Produkt" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtProduct" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Cena" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtPrice" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Ilość" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtCount" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Opis" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtDescription" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="URL Okładki" runat="server" />
-                    </td>
-                    <td colspan="2">
-                        <asp:TextBox ID="txtImage" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <asp:Button Text="Zapisz" ID="btnSave" runat="server" OnClick="btnSave_Click" />
-                        <asp:Button Text="Usuń" ID="btnDelete" runat="server" OnClick="btnDelete_Click" />
-                        <asp:Button Text="Wyczyść" ID="btnClear" runat="server" OnClick="btnClear_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <asp:Label Text="" ID="lblSuccessMessage" runat="server" ForeColor="Green" />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <asp:Label Text="" ID="lblErrorMessage" runat="server" ForeColor="Red" />
-                    </td>
-                </tr>
-            </table>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Produkt
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtProduct" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Cena
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtPrice" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Ilość
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtCount" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Opis
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    URL Okładki
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtImage" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="ml-auto">
+                    <asp:Button Text="Zapisz" ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-primary" />
+                    <asp:Button Text="Usuń" ID="btnDelete" runat="server" OnClick="btnDelete_Click" CssClass="btn btn-primary" />
+                    <asp:Button Text="Wyczyść" ID="btnClear" runat="server" OnClick="btnClear_Click" CssClass="btn btn-primary" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <asp:Label Text="" ID="lblSuccessMessage" runat="server" CssClass="form-text text-success" />
+            </div>
+            <div class="form-group row">
+                <asp:Label Text="" ID="lblErrorMessage" runat="server" CssClass="form-text text-danger" />
+            </div>
             <br />
-            <asp:GridView ID="gvProduct" runat="server" AutoGenerateColumns="false">
+        </div>
+        <!-- Wyszukiwarka -->
+        <div style="width: 80%; margin: 50px auto">
+            <div class="row">
+                <div class="col-sm-5">
+                    <asp:TextBox ID="txtFind" runat="server" placeholder="Wyszukaj produkt" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-sm-0">
+                    <asp:ImageButton ID="btnFind" OnClick="findProduct" Text="Wyszukaj" runat="server" ImageUrl="./Assets/search.svg" ImageAlign="Middle" Width="30px" />
+                </div>
+            </div>
+
+            <asp:GridView ID="gvFindProducts" runat="server" AutoGenerateColumns="false" CssClass="table">
+                <Columns>
+                    <asp:BoundField DataField="product" HeaderText="Produkt" />
+                    <asp:BoundField DataField="price" HeaderText="Cena" />
+                    <asp:BoundField DataField="count" HeaderText="Ilość" />
+                    <asp:BoundField DataField="description" HeaderText="Opis" />
+                </Columns>
+            </asp:GridView>
+        </div>
+        <div style="width: 80%; margin: 50px auto">
+            <asp:GridView ID="gvProduct" runat="server" AutoGenerateColumns="false" CssClass="table table-condensed table-hover">
                 <Columns>
                     <asp:BoundField DataField="product" HeaderText="Produkt" />
                     <asp:BoundField DataField="price" HeaderText="Cena" />
@@ -86,24 +114,11 @@
                     <asp:BoundField DataField="description" HeaderText="Opis" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton Text="Select" ID="lnkSelect" CommandArgument='<%# Eval("ProductID") %>' runat="server" OnClick="lnkSelect_OnClick" />
+                            <asp:LinkButton Text="Select" ID="lnkSelect" CommandArgument='<%# Eval("ProductID") %>' runat="server" OnClick="lnkSelect_OnClick" CssClass="card-link" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-
-            <!-- Wyszukiwarka -->
-            <asp:TextBox ID="txtFind" runat="server" placeholder="Wyszukaj produkt"></asp:TextBox>
-            <asp:Button ID="btnFind" OnClick="findProduct" Text="Wyszukaj" runat="server"/>
-            <asp:GridView ID="gvFindProducts" runat="server" AutoGenerateColumns="false">
-                <Columns>
-                    <asp:BoundField DataField="product" HeaderText="Produkt" />
-                    <asp:BoundField DataField="price" HeaderText="Cena" />
-                    <asp:BoundField DataField="count" HeaderText="Ilość" />
-                    <asp:BoundField DataField="description" HeaderText="Opis" />
-                </Columns>
-            </asp:GridView>
-
         </div>
     </form>
 </body>

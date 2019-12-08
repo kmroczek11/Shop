@@ -70,8 +70,8 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <asp:Button OnClick="logout" Text="Wyloguj" runat="server" CssClass="nav-link" />
+                    <li class="nav-item ml-auto">
+                        <asp:Button OnClick="logout" Text="Wyloguj" runat="server" CssClass="btn btn-link" />
                     </li>
                 </ul>
             </div>
@@ -112,7 +112,7 @@
                         </table>
                         <hr />
                         <h5>Twój koszyk</h5>
-                        <asp:Table CellPadding="4" ID="cardProducts" runat="server"></asp:Table>
+                        <asp:Table CellPadding="4" ID="cardProducts" runat="server" CssClass="table"></asp:Table>
                     </div>
                     <div class="modal-footer">
                         <asp:Button OnClick="order" class="btn btn-primary" Text="Zamów" runat="server"

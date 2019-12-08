@@ -7,11 +7,13 @@
 // </generowany automatycznie>
 //------------------------------------------------------------------------------
 
-namespace Shop {
-    
-    
-    public partial class AdminProductsForm {
-        
+namespace Shop
+{
+
+
+    public partial class AdminProductsForm
+    {
+
         /// <summary>
         /// Kontrolka main.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm main;
-        
+
         /// <summary>
         /// Kontrolka hfProductID.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfProductID;
-        
+
         /// <summary>
         /// Kontrolka txtProduct.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProduct;
-        
+
         /// <summary>
         /// Kontrolka txtPrice.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
-        
+
         /// <summary>
         /// Kontrolka txtCount.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCount;
-        
+
         /// <summary>
         /// Kontrolka txtDescription.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
-        
+
         /// <summary>
         /// Kontrolka txtImage.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtImage;
-        
+
         /// <summary>
         /// Kontrolka btnSave.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-        
+
         /// <summary>
         /// Kontrolka btnDelete.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDelete;
-        
+
         /// <summary>
         /// Kontrolka btnClear.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClear;
-        
+
         /// <summary>
         /// Kontrolka lblSuccessMessage.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSuccessMessage;
-        
+
         /// <summary>
         /// Kontrolka lblErrorMessage.
         /// </summary>
@@ -119,16 +121,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblErrorMessage;
-        
-        /// <summary>
-        /// Kontrolka gvProduct.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProduct;
-        
+
         /// <summary>
         /// Kontrolka txtFind.
         /// </summary>
@@ -137,7 +130,7 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFind;
-        
+
         /// <summary>
         /// Kontrolka btnFind.
         /// </summary>
@@ -145,8 +138,8 @@ namespace Shop {
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFind;
-        
+        protected global::System.Web.UI.WebControls.ImageButton btnFind;
+
         /// <summary>
         /// Kontrolka gvFindProducts.
         /// </summary>
@@ -155,5 +148,14 @@ namespace Shop {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvFindProducts;
+
+        /// <summary>
+        /// Kontrolka gvProduct.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvProduct;
     }
 }
