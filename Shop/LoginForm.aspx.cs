@@ -20,34 +20,53 @@ namespace Shop
 
         protected void btLogin_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
-                    sqlCon.Open();
-                    MySqlCommand sqlCmd = new MySqlCommand("UserFind", sqlCon);
-                    sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("_login", tbLogin.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("_password", tbPassword.Text.Trim());
-                    var noRows = (long)sqlCmd.ExecuteScalar();
-                    if (noRows > 0)
+                    conn.Open();
+                    MySqlCommand command = conn.CreateCommand();
+                    command.CommandText = "SELECT * FROM users";
+                    MySqlDataReader reader = command.ExecuteReader();
+                    bool userExists = false;
+                    while (reader.Read())
                     {
-                        //lblSuccessMessage.Text = "Zalogowano pomyślnie";
-                        //Global.login = tbLogin.Text;
-                        string login = tbLogin.Text;
-                        Session["Login"] = login;
-                        Response.Redirect("UserForm.aspx");
+                        string login = reader.GetString("login");
+                        string password = reader.GetString("password");
+
+                        if (login == tbLogin.Text.Trim() && password == hashPassword(tbPassword.Text.Trim()))
+                        {
+                            Session["Login"] = login;
+                            string isAdmin = reader.GetString("isAdmin");
+                            userExists = true;
+
+                            if (isAdmin == "True")
+                            {
+                                Response.Redirect("AdminUsersForm.aspx");
+                            }
+                            else
+                            {
+                                Response.Redirect("UserForm.aspx");
+                            }
+                        }
                     }
-                    else
-                    {
-                        lblErrorMessage.Text = "Błędny login lub hasło";
-                    }
+                    reader.Close();
+                    if (!userExists) lblErrorMessage.Text = "Błędny login lub hasło";
+
                 }
                 catch (Exception ex)
                 {
                     lblErrorMessage.Text = ex.Message;
                 }
             }
+        }
+
+        protected string hashPassword(string password)
+        {
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+            return hash;
         }
     }
 }

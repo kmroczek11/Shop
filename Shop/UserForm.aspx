@@ -96,7 +96,7 @@
                             <tr>
                                 <td class="name" />
                                 <td>
-                                    <img class="cover" width="50" height="80" src="none" />
+                                    <img class="cover" width="80" height="80" src="none" />
                                 </td>
                                 <td class="price" />
                                 <td>
@@ -159,8 +159,21 @@
             </ItemTemplate>
         </asp:DataList>
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:shopConnectionString %>" ProviderName="<%$ ConnectionStrings:shopConnectionString.ProviderName %>" SelectCommand="SELECT * FROM product"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:getProducts %>" ProviderName="<%$ ConnectionStrings:getProducts.ProviderName %>" SelectCommand="SELECT * FROM product"></asp:SqlDataSource>
         <br />
+
+        <!-- Wyszukiwarka -->
+            <asp:TextBox ID="txtFind" runat="server" placeholder="Wyszukaj produkt"></asp:TextBox>
+            <asp:Button ID="btnFind" OnClick="findProduct" Text="Wyszukaj" runat="server"/>
+            <asp:GridView ID="gvFindProducts" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField DataField="product" HeaderText="Produkt" />
+                    <asp:BoundField DataField="price" HeaderText="Cena" />
+                    <asp:BoundField DataField="count" HeaderText="Ilość" />
+                    <asp:BoundField DataField="description" HeaderText="Opis" />
+                </Columns>
+            </asp:GridView>
+
     </form>
 
 </body>

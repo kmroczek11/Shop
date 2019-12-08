@@ -7,13 +7,11 @@
 // </generowany automatycznie>
 //------------------------------------------------------------------------------
 
-namespace Shop
-{
-
-
-    public partial class RegisterForm
-    {
-
+namespace Shop {
+    
+    
+    public partial class RegisterForm {
+        
         /// <summary>
         /// Kontrolka form1.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// Kontrolka hfUserID.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfUserID;
-
+        
         /// <summary>
         /// Kontrolka tbLogin.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbLogin;
-
+        
         /// <summary>
         /// Kontrolka tbPassword.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbPassword;
-
+        
         /// <summary>
         /// Kontrolka RequiredFieldValidator2.
         /// </summary>
@@ -58,7 +56,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-
+        
         /// <summary>
         /// Kontrolka RegularExpressionValidator2.
         /// </summary>
@@ -67,7 +65,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
-
+        
         /// <summary>
         /// Kontrolka tbConfirm.
         /// </summary>
@@ -76,7 +74,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbConfirm;
-
+        
         /// <summary>
         /// Kontrolka ddlCities.
         /// </summary>
@@ -85,7 +83,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCities;
-
+        
         /// <summary>
         /// Kontrolka rblGender.
         /// </summary>
@@ -94,7 +92,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblGender;
-
+        
         /// <summary>
         /// Kontrolka tbEmail.
         /// </summary>
@@ -103,7 +101,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbEmail;
-
+        
         /// <summary>
         /// Kontrolka RequiredFieldValidator1.
         /// </summary>
@@ -112,7 +110,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-
+        
         /// <summary>
         /// Kontrolka RegularExpressionValidator1.
         /// </summary>
@@ -121,7 +119,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-
+        
         /// <summary>
         /// Kontrolka lblSuccessMessage.
         /// </summary>
@@ -130,7 +128,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSuccessMessage;
-
+        
         /// <summary>
         /// Kontrolka lblErrorMessage.
         /// </summary>
@@ -139,7 +137,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblErrorMessage;
-
+        
         /// <summary>
         /// Kontrolka btRegister.
         /// </summary>
@@ -148,7 +146,16 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btRegister;
-
+        
+        /// <summary>
+        /// Kontrolka NavLink1.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink NavLink1;
+        
         /// <summary>
         /// Kontrolka ValidationSummary1.
         /// </summary>

@@ -118,7 +118,7 @@ namespace Shop
             cart.addToCart(selectedProduct);
             refreshItems();
             addOrders();//dodanie produktów do bazy przy dodawaniu do koszyka
-            showMessage("Dodano do koszyka", MessageType.Success);
+            showMessage("Dodano do koszyka!", MessageType.Success);
         }
 
         protected void showMessage(string Message, MessageType type)
@@ -160,6 +160,7 @@ namespace Shop
             string imageUrl = selectedProduct.imageUrl;
             int quantity = selectedProduct.quantity;
 
+            selectQuantity.Items.Clear();
             for (int i = 1; i < quantity + 1; i++)
             {
                 selectQuantity.Items.Add(new ListItem(i.ToString(), i.ToString()));
@@ -179,7 +180,7 @@ namespace Shop
             else
             {
                 saveOrders();
-                showMessage("Złożono zamówienie", MessageType.Success);
+                showMessage("Złożono zamówienie. Na maila wysłaliśmy potwierdzenie zamówienia.", MessageType.Success);
             }
         }
 
@@ -317,7 +318,7 @@ namespace Shop
                 {
                     double sum = product.price * product.selectedQuantity;
                     wholeCost += sum;
-                    message.Body += "Produkt: " + product.name + " Cena: " + product.price + " Ilość: " + product.selectedQuantity + " Suma: "  + sum + Environment.NewLine;
+                    message.Body += "Produkt: " + product.name + " Cena: " + product.price + " Ilość: " + product.selectedQuantity + " Suma: " + sum + Environment.NewLine;
                 }
                 message.Body += "Łącznie: " + wholeCost;
 
@@ -330,6 +331,22 @@ namespace Shop
             catch (Exception ex)
             {
                 showMessage(ex.Message, MessageType.Warning);
+            }
+        }
+
+        protected void findProduct(object sender, System.EventArgs e)
+        {
+            Debug.WriteLine("Szukanie produktu...");
+            using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                MySqlDataAdapter sqlData = new MySqlDataAdapter("ProductFindByName", sqlCon);
+                sqlData.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlData.SelectCommand.Parameters.AddWithValue("_product", "%" + txtFind.Text + "%");
+                DataTable dtbl = new DataTable();
+                sqlData.Fill(dtbl);
+                gvFindProducts.DataSource = dtbl;
+                gvFindProducts.DataBind();
             }
         }
     }

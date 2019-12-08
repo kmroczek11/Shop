@@ -34,17 +34,29 @@ namespace Shop
                         using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
                         {
                             sqlCon.Open();
-                            MySqlCommand sqlCmd = new MySqlCommand("UserAddOrEdit", sqlCon);
-                            sqlCmd.CommandType = CommandType.StoredProcedure;
-                            sqlCmd.Parameters.AddWithValue("_userid", Convert.ToInt32(hfUserID.Value == "" ? "0" : hfUserID.Value));
-                            sqlCmd.Parameters.AddWithValue("_login", tbLogin.Text.Trim());
-                            sqlCmd.Parameters.AddWithValue("_password", tbPassword.Text.Trim());
-                            sqlCmd.Parameters.AddWithValue("_city", ddlCities.SelectedValue.Trim());
-                            sqlCmd.Parameters.AddWithValue("_gender", rblGender.SelectedValue.Trim());
-                            sqlCmd.Parameters.AddWithValue("_email", tbEmail.Text.Trim());
-                            sqlCmd.ExecuteNonQuery();
-                            lblSuccessMessage.Text = "Zarejestrowano pomyślnie. Na maila wysłaliśmy potwierdzenie rejestracji.";
-                            sendConfirmationEmail();
+
+                            MySqlCommand find = new MySqlCommand("UserExists", sqlCon);
+                            find.CommandType = CommandType.StoredProcedure;
+                            find.Parameters.AddWithValue("_login", tbLogin.Text.Trim());
+                            var noRows = (long)find.ExecuteScalar();
+                            if (noRows > 0)
+                            {
+                                lblErrorMessage.Text = "Podany login jest już zajęty";
+                            }
+                            else
+                            {
+                                MySqlCommand sqlCmd = new MySqlCommand("UserAddOrEdit", sqlCon);
+                                sqlCmd.CommandType = CommandType.StoredProcedure;
+                                sqlCmd.Parameters.AddWithValue("_userid", Convert.ToInt32(hfUserID.Value == "" ? "0" : hfUserID.Value));
+                                sqlCmd.Parameters.AddWithValue("_login", tbLogin.Text.Trim());
+                                sqlCmd.Parameters.AddWithValue("_password", hashPassword(tbPassword.Text.Trim()));
+                                sqlCmd.Parameters.AddWithValue("_city", ddlCities.SelectedValue.Trim());
+                                sqlCmd.Parameters.AddWithValue("_gender", rblGender.SelectedValue.Trim());
+                                sqlCmd.Parameters.AddWithValue("_email", tbEmail.Text.Trim());
+                                sqlCmd.ExecuteNonQuery();
+                                lblSuccessMessage.Text = "Zarejestrowano pomyślnie. Na maila wysłaliśmy potwierdzenie rejestracji.";
+                                sendConfirmationEmail();
+                            }
                         }
                     }
                     catch (Exception ex)
@@ -81,6 +93,14 @@ namespace Shop
             {
                 lblErrorMessage.Text = ex.Message;
             }
+        }
+
+        protected string hashPassword(string password)
+        {
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+            return hash;
         }
     }
 }

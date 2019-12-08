@@ -71,6 +71,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminOrdersForm.aspx" />
+    <Content Include="AdminUsersForm.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -78,7 +80,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="HomeForm.aspx" />
+    <Content Include="AdminProductsForm.aspx" />
     <Content Include="LoginForm.aspx" />
     <Content Include="RegisterForm.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -184,16 +186,30 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminOrdersForm.aspx.cs">
+      <DependentUpon>AdminOrdersForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminOrdersForm.aspx.designer.cs">
+      <DependentUpon>AdminOrdersForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUsersForm.aspx.cs">
+      <DependentUpon>AdminUsersForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUsersForm.aspx.designer.cs">
+      <DependentUpon>AdminUsersForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cart.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HomeForm.aspx.cs">
-      <DependentUpon>HomeForm.aspx</DependentUpon>
+    <Compile Include="AdminProductsForm.aspx.cs">
+      <DependentUpon>AdminProductsForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HomeForm.aspx.designer.cs">
-      <DependentUpon>HomeForm.aspx</DependentUpon>
+    <Compile Include="AdminProductsForm.aspx.designer.cs">
+      <DependentUpon>AdminProductsForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>

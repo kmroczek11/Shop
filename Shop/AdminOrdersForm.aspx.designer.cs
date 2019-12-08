@@ -10,105 +10,96 @@
 namespace Shop {
     
     
-    public partial class UserForm {
+    public partial class AdminOrdersForm {
         
         /// <summary>
-        /// Kontrolka userForm.
+        /// Kontrolka main.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm userForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm main;
         
         /// <summary>
-        /// Kontrolka Message.
+        /// Kontrolka hfOrderID.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Message;
+        protected global::System.Web.UI.WebControls.HiddenField hfOrderID;
         
         /// <summary>
-        /// Kontrolka labelMessage.
+        /// Kontrolka txtID.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelMessage;
+        protected global::System.Web.UI.WebControls.TextBox txtID;
         
         /// <summary>
-        /// Kontrolka selectQuantity.
+        /// Kontrolka txtStatus.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectQuantity;
+        protected global::System.Web.UI.WebControls.TextBox txtStatus;
         
         /// <summary>
-        /// Kontrolka cardProducts.
+        /// Kontrolka btnSave.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table cardProducts;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// Kontrolka lbLogin.
+        /// Kontrolka btnDelete.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbLogin;
+        protected global::System.Web.UI.WebControls.Button btnDelete;
         
         /// <summary>
-        /// Kontrolka DataList1.
+        /// Kontrolka btnClear.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList1;
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
-        /// Kontrolka SqlDataSource1.
+        /// Kontrolka lblSuccessMessage.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblSuccessMessage;
         
         /// <summary>
-        /// Kontrolka txtFind.
+        /// Kontrolka lblErrorMessage.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFind;
+        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
         
         /// <summary>
-        /// Kontrolka btnFind.
+        /// Kontrolka gvUsers.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFind;
-        
-        /// <summary>
-        /// Kontrolka gvFindProducts.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvFindProducts;
+        protected global::System.Web.UI.WebControls.GridView gvUsers;
     }
 }
