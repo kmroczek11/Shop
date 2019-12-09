@@ -21,9 +21,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"> <a class="nav-link" href="AdminUsersForm.aspx">Users<span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"> <a class="nav-link" href="AdminOrdersForm.aspx">Orders<span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item active"> <a class="nav-link" href="AdminProductsForm.aspx">Products<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="AdminUsersForm.aspx">Users<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="AdminOrdersForm.aspx">Orders<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item active"><a class="nav-link" href="AdminProductsForm.aspx">Products<span class="sr-only">(current)</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -71,6 +71,14 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-sm-2 col-form-label">
+                    Typ gry
+                </label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtType" runat="server" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
                 <div class="ml-auto">
                     <asp:Button Text="Zapisz" ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-primary" />
                     <asp:Button Text="Usuń" ID="btnDelete" runat="server" OnClick="btnDelete_Click" CssClass="btn btn-primary" />
@@ -112,6 +120,7 @@
                     <asp:BoundField DataField="price" HeaderText="Cena" />
                     <asp:BoundField DataField="count" HeaderText="Ilość" />
                     <asp:BoundField DataField="description" HeaderText="Opis" />
+                    <asp:BoundField DataField="type" HeaderText="Typ" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton Text="Select" ID="lnkSelect" CommandArgument='<%# Eval("ProductID") %>' runat="server" OnClick="lnkSelect_OnClick" CssClass="card-link" />

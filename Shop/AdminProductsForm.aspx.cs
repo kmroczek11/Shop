@@ -30,7 +30,7 @@ namespace Shop
         void Clear()
         {
             hfProductID.Value = "";
-            txtProduct.Text = txtPrice.Text = txtCount.Text = txtDescription.Text = txtImage.Text = "";
+            txtProduct.Text = txtPrice.Text = txtCount.Text = txtDescription.Text = txtImage.Text = txtType.Text = "";
             btnSave.Text = "Zapisz";
             btnDelete.Enabled = false;
             lblErrorMessage.Text = lblSuccessMessage.Text = "";
@@ -65,6 +65,7 @@ namespace Shop
                     sqlCmd.Parameters.AddWithValue("_count", Convert.ToInt32(txtCount.Text.Trim()));
                     sqlCmd.Parameters.AddWithValue("_description", txtDescription.Text.Trim());
                     sqlCmd.Parameters.AddWithValue("_image", txtImage.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("_type", txtType.Text.Trim());
                     sqlCmd.ExecuteNonQuery();
                     GridFill();
                     Clear();
