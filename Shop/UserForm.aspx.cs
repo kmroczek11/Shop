@@ -30,12 +30,13 @@ namespace Shop
             getId();
             refreshItems();
             getProducts();
-            lbLogin.Text = "Witaj " + Session["Login"];
+            lbLogin.Text = "Witaj, " + Session["Login"] + "!";
             //lbLogin.Text = "Witaj Kamil";
 
             if (!IsPostBack)
             {
                 loadCart();
+                matchAds();
             }
         }
 
@@ -150,6 +151,7 @@ namespace Shop
             {
                 if (product.id == productID)
                 {
+                    Debug.WriteLine("Znaleziono produkt.");
                     selectedProduct = product;
                     break;
                 }
@@ -347,6 +349,66 @@ namespace Shop
                 sqlData.Fill(dtbl);
                 gvFindProducts.DataSource = dtbl;
                 gvFindProducts.DataBind();
+            }
+        }
+
+        protected void matchAds()
+        {
+            using (MySqlConnection sqlCon = new MySqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                MySqlCommand command = sqlCon.CreateCommand();
+                command.CommandText = "SELECT * FROM basket INNER JOIN product ON basket.product_id = product.productid WHERE customer_id = " + userId + ";";
+                MySqlDataReader reader = command.ExecuteReader();
+
+                List<Type> types = new List<Type>();
+                while (reader.Read())
+                {
+                    string type = reader.GetString("type");
+                    Type foundType = null;
+                    foreach (Type t in types)
+                    {
+                        if (t.name == type)
+                        {
+                            Debug.WriteLine("Typ " + t.name + " się powtórzył");
+                            t.count += 1;
+                            foundType = t;
+                            break;
+                        }
+                    }
+
+                    if (foundType == null)
+                    {
+                        types.Add(new Type(type));
+                    }
+                }
+
+                string mostCommonType = "";
+                int maxCount = 0;
+                foreach (Type t in types)
+                {
+                    Debug.Write("Typ: " + t.name + " Ilość: " + t.count + "\n");
+                    if (t.count > maxCount)
+                    {
+                        maxCount = t.count;
+                        mostCommonType = t.name;
+                    }
+                }
+
+                Debug.WriteLine("Najczęstszy typ: " + mostCommonType);
+
+                if (mostCommonType == "")
+                    lbAd.Text = "Dodaj coś do koszyka, abyśmy następnym razem mogli dopasować reklamy dla Ciebie!";
+
+                reader.Close();
+
+                MySqlDataAdapter sqlData = new MySqlDataAdapter("ProductFindByType", sqlCon);
+                sqlData.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlData.SelectCommand.Parameters.AddWithValue("_type", mostCommonType);
+                DataTable dtbl = new DataTable();
+                sqlData.Fill(dtbl);
+                gvAd.DataSource = dtbl;
+                gvAd.DataBind();
             }
         }
     }

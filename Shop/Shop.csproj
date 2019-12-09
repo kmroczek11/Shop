@@ -228,6 +228,7 @@
     <Compile Include="RegisterForm.aspx.designer.cs">
       <DependentUpon>RegisterForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Type.cs" />
     <Compile Include="UserForm.aspx.cs">
       <DependentUpon>UserForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

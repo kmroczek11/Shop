@@ -125,6 +125,16 @@
             </div>
         </div>
         <!-- Modal Popup -->
+        
+        <!-- Reklama -->
+        <asp:Label ID="lbAd" runat="server">Mogą Ci się spodobać również...</asp:Label>
+        <asp:GridView ID="gvAd" runat="server" AutoGenerateColumns="false">
+            <Columns>
+                <asp:BoundField DataField="product" HeaderText="Produkt" />
+                <asp:BoundField DataField="price" HeaderText="Cena" />
+                <asp:BoundField DataField="description" HeaderText="Opis" />
+            </Columns>
+        </asp:GridView>
 
         <div style="text-align: center">
             <div style="height: 20px">
