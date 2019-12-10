@@ -60,7 +60,7 @@ namespace Shop
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     sqlCmd.Parameters.AddWithValue("_userid", Convert.ToInt32(hfUserID.Value == "" ? "0" : hfUserID.Value));
                     sqlCmd.Parameters.AddWithValue("_login", txtLogin.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("_password", txtPassword.Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("_password", hashPassword(txtPassword.Text.Trim()));
                     sqlCmd.Parameters.AddWithValue("_city", txtCity.Text.Trim());
                     sqlCmd.Parameters.AddWithValue("_gender", txtGender.Text.Trim());
                     sqlCmd.Parameters.AddWithValue("_email", txtEmail.Text.Trim());
@@ -121,6 +121,20 @@ namespace Shop
         protected void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        protected string hashPassword(string password)
+        {
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+            return hash;
+        }
+
+        protected void logout(object sender, EventArgs e)
+        {
+            Response.Cookies.Clear();
+            Response.Redirect("LoginForm.aspx");
         }
     }
 }

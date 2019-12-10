@@ -95,6 +95,7 @@ namespace Shop
                 txtCount.Text = dtbl.Rows[0][3].ToString();
                 txtDescription.Text = dtbl.Rows[0][4].ToString();
                 txtImage.Text = dtbl.Rows[0][5].ToString();
+                txtType.Text = dtbl.Rows[0][6].ToString();
 
                 hfProductID.Value = dtbl.Rows[0][0].ToString();
 
@@ -137,6 +138,12 @@ namespace Shop
         protected void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        protected void logout(object sender, EventArgs e)
+        {
+            Response.Cookies.Clear();
+            Response.Redirect("LoginForm.aspx");
         }
     }
 }

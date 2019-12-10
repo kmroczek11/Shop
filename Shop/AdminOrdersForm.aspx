@@ -10,6 +10,12 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
+    <style>
+        .logout {
+            background: none;
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <form id="main" runat="server">
@@ -21,9 +27,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"> <a class="nav-link" href="AdminUsersForm.aspx">Users<span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item active"> <a class="nav-link" href="AdminOrdersForm.aspx">Orders<span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"> <a class="nav-link" href="AdminProductsForm.aspx">Products<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="AdminUsersForm.aspx">Użytkownicy<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item active"><a class="nav-link" href="AdminOrdersForm.aspx">Zamówienia<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="AdminProductsForm.aspx">Produkty<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link ml-auto">
+                            <asp:Button OnClick="logout" Text="Wyloguj" runat="server" CssClass="logout" /></a>
+                    </li>
                 </ul>
             </div>
         </nav>
