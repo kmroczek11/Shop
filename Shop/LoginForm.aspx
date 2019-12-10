@@ -10,9 +10,11 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
+    <style>
+    </style>
 </head>
 <body>
-    <form id="loginForm" runat="server" style="width: 50%; margin: 50px auto">
+    <form id="loginForm" runat="server" style="width: 50%; margin: 50px auto;">
         <div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Login</label>

@@ -30,7 +30,7 @@ namespace Shop
             getId();
             refreshItems();
             getProducts();
-            lbLogin.Text = "Witaj, " + Session["Login"] + "!";
+            lbLogin.Text = "Witaj, " + Session["Login"] + "! Rozpocznij swoje zakupy";
             //lbLogin.Text = "Witaj Kamil";
 
             if (!IsPostBack)
@@ -410,6 +410,11 @@ namespace Shop
                 gvAd.DataSource = dtbl;
                 gvAd.DataBind();
             }
+        }
+
+        protected void gvFindProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

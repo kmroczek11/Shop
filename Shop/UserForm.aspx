@@ -27,6 +27,11 @@
             padding: 0;
             font-size: 15px;
         }
+
+        .logout {
+            background: none;
+            border: none;
+        }
     </style>
     <script type="text/javascript">
         function ShowMessage(message, messagetype) {
@@ -70,8 +75,8 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ml-auto">
-                        <asp:Button OnClick="logout" Text="Wyloguj" runat="server" CssClass="btn btn-link" />
+                    <li class="nav-item">
+                        <a class="nav-link ml-auto"><asp:Button OnClick="logout" Text="Wyloguj" runat="server" CssClass="logout" /></a>
                     </li>
                 </ul>
             </div>
@@ -81,8 +86,7 @@
 
         <div class="MessagePanelDiv">
             <asp:Panel ID="Message" runat="server" CssClass="hidepanel">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <asp:Label ID="labelMessage" runat="server" />
+                &nbsp;<asp:Label ID="labelMessage" runat="server" />
             </asp:Panel>
         </div>
 
@@ -125,16 +129,19 @@
             </div>
         </div>
         <!-- Modal Popup -->
-        
+
         <!-- Reklama -->
-        <asp:Label ID="lbAd" runat="server">Mogą Ci się spodobać również...</asp:Label>
-        <asp:GridView ID="gvAd" runat="server" AutoGenerateColumns="false">
-            <Columns>
-                <asp:BoundField DataField="product" HeaderText="Produkt" />
-                <asp:BoundField DataField="price" HeaderText="Cena" />
-                <asp:BoundField DataField="description" HeaderText="Opis" />
-            </Columns>
-        </asp:GridView>
+        <div class="card" style="margin: auto 5%; padding: 0 15px">
+            <asp:Label ID="lbAd" runat="server" CssClass="h3 font-weight-bold"></asp:Label>
+            <p class="h3 font-weight-bold" style="text-align: center">Mogą Ci się spodobać również...</p>
+            <asp:GridView ID="gvAd" runat="server" AutoGenerateColumns="false" CssClass="table">
+                <Columns>
+                    <asp:BoundField DataField="product" HeaderText="Produkt" />
+                    <asp:BoundField DataField="price" HeaderText="Cena" />
+                    <asp:BoundField DataField="description" HeaderText="Opis" />
+                </Columns>
+            </asp:GridView>
+        </div>
 
         <div style="text-align: center">
             <div style="height: 20px">
@@ -142,62 +149,76 @@
             <asp:Label ID="lbLogin" runat="server" CssClass="h2 font-weight-bold"></asp:Label>
         </div>
         <br />
+
+        <!-- Wyszukiwarka -->
+        <div style="width: 80%; margin: 50px auto">
+            <div class="row">
+                <div class="col-sm-5">
+                    <asp:TextBox ID="txtFind" runat="server" placeholder="Wyszukaj produkt" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-sm-0">
+                    <asp:ImageButton ID="btnFind" OnClick="findProduct" Text="Wyszukaj" runat="server" ImageUrl="./Assets/search.svg" ImageAlign="Middle" Width="30px" />
+                </div>
+            </div>
+
+            <asp:GridView ID="gvFindProducts" runat="server" AutoGenerateColumns="false" CssClass="table" OnSelectedIndexChanged="gvFindProducts_SelectedIndexChanged">
+                <Columns>
+                    <asp:BoundField DataField="product" HeaderText="Produkt" />
+                    <asp:ImageField HeaderText="Okładka" DataImageUrlField="image" ControlStyle-Width="100px" />
+                    <asp:BoundField DataField="price" HeaderText="Cena" />
+                    <asp:BoundField DataField="count" HeaderText="Ilość" />
+                    <asp:BoundField DataField="description" HeaderText="Opis" />
+                </Columns>
+            </asp:GridView>
+        </div>
+
         <asp:DataList ID="DataList1" runat="server" DataKeyField="productid" DataSourceID="SqlDataSource1"
-            RepeatColumns="4" RepeatDirection="Horizontal" CssClass="table">
+            RepeatColumns="4" RepeatDirection="Horizontal">
             <ItemTemplate>
-                <table class="table">
-                    <tr>
-                        <td class="auto-style2">
-                            <asp:Label ID="lbProduct" runat="server" Style="text-align: center"
-                                Text='<%# Eval("product") %>'></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">
-                            <asp:Label ID="lbDescription" runat="server" Text='<%# Eval("description") %>'></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">
-                            <asp:Image ID="imgImage" runat="server" Height="150px" ImageUrl='<%# Eval("image") %>'
-                                Width="150px" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">Dostępnych sztuk na magazynie
+                <div class="card" style="margin: 5px">
+                    <table class="table">
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lbProduct" runat="server" Style="text-align: center"
+                                    Text='<%# Eval("product") %>'></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lbDescription" runat="server" Text='<%# Eval("description") %>'></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Image ID="imgImage" runat="server" Height="150px" ImageUrl='<%# Eval("image") %>'
+                                    Width="150px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">Dostępnych sztuk na magazynie
                             <asp:Label ID="lbCount" runat="server" Text='<%# Eval("count") %>'></asp:Label>
-                            <br />
-                            Cena
+                                <br />
+                                Cena
                             <asp:Label ID="lbPrice" runat="server" Text='<%# Eval("price") %>'></asp:Label>
-                            &nbsp;zł</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">
-                            <asp:Button CommandArgument='<%# Eval("productid") %>' OnClick="openCart" ID="addToCart"
-                                runat="server" Text="Dodaj do koszyka" CssClass="btn btn-primary" />
-                        </td>
-                    </tr>
-                </table>
-                <br />
+                                &nbsp;zł</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Button CommandArgument='<%# Eval("productid") %>' OnClick="openCart" ID="addToCart"
+                                    runat="server" Text="Dodaj do koszyka" CssClass="btn btn-primary" />
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                </div>
             </ItemTemplate>
         </asp:DataList>
         <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:getProducts %>"
-            ProviderName="<%$ ConnectionStrings:getProducts.ProviderName %>" SelectCommand="SELECT * FROM product">
-        </asp:SqlDataSource>
+            ProviderName="<%$ ConnectionStrings:getProducts.ProviderName %>" SelectCommand="SELECT * FROM product"></asp:SqlDataSource>
         <br />
 
-        <!-- Wyszukiwarka -->
-        <asp:TextBox ID="txtFind" runat="server" placeholder="Wyszukaj produkt"></asp:TextBox>
-        <asp:Button ID="btnFind" OnClick="findProduct" Text="Wyszukaj" runat="server" />
-        <asp:GridView ID="gvFindProducts" runat="server" AutoGenerateColumns="false">
-            <Columns>
-                <asp:BoundField DataField="product" HeaderText="Produkt" />
-                <asp:BoundField DataField="price" HeaderText="Cena" />
-                <asp:BoundField DataField="count" HeaderText="Ilość" />
-                <asp:BoundField DataField="description" HeaderText="Opis" />
-            </Columns>
-        </asp:GridView>
+
 
     </form>
 
