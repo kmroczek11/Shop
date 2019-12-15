@@ -30,7 +30,6 @@ namespace Shop
             getId();
             refreshItems();
             getProducts();
-            lbLogin.Text = "Witaj, " + Session["Login"] + "! Rozpocznij swoje zakupy";
             //lbLogin.Text = "Witaj Kamil";
 
             if (!IsPostBack)
@@ -38,7 +37,27 @@ namespace Shop
                 loadCart();
                 matchAds();
             }
+
+            if (string.IsNullOrEmpty(Session["Login"] as string))
+            {
+                logInBtn.Text = "Zaloguj";
+                logInBtn.Click += new EventHandler(login);
+                lbLogin.Text = "Zaloguj się aby móc robić zakupy";
+            }
+            else
+            {
+                logInBtn.Text = "Wyloguj";
+                logInBtn.Click += new EventHandler(logout);
+                lbLogin.Text = "Witaj, " + Session["Login"] + "! Rozpocznij swoje zakupy";
+            }
+
         }
+
+        protected void login(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginForm.aspx");
+        }
+
 
         /*protected void Page_UnLoad(object sender, EventArgs e)
         {
@@ -285,7 +304,7 @@ namespace Shop
             Session.Abandon();
             Session.Clear();
             Response.Cookies.Clear();
-            Response.Redirect("LoginForm.aspx");
+            Response.Redirect("UserForm.aspx");
         }
 
         protected void sendOrderEmail()
@@ -399,6 +418,8 @@ namespace Shop
 
                 if (mostCommonType == "")
                     lbAd.Text = "Dodaj coś do koszyka, abyśmy następnym razem mogli dopasować reklamy dla Ciebie!";
+                else
+                    lbAd.Text = "Mogą Ci się spodobać również...";
 
                 reader.Close();
 

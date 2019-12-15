@@ -117,7 +117,7 @@ namespace Shop
         protected void logout(object sender, EventArgs e)
         {
             Response.Cookies.Clear();
-            Response.Redirect("LoginForm.aspx");
+            Response.Redirect("UserForm.aspx");
         }
     }
 }

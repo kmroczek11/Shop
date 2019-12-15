@@ -76,7 +76,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link ml-auto"><asp:Button OnClick="logout" Text="Wyloguj" runat="server" CssClass="logout" /></a>
+                        <a class="nav-link ml-auto"><asp:Button ID="logInBtn" Text="" runat="server" CssClass="logBtn" /></a>
                     </li>
                 </ul>
             </div>
@@ -132,8 +132,7 @@
 
         <!-- Reklama -->
         <div class="card" style="margin: auto 5%; padding: 0 15px">
-            <asp:Label ID="lbAd" runat="server" CssClass="h3 font-weight-bold"></asp:Label>
-            <p class="h3 font-weight-bold" style="text-align: center">Mogą Ci się spodobać również...</p>
+            <asp:Label ID="lbAd" runat="server" CssClass="h3 font-weight-bold" style="text-align: center"></asp:Label>
             <asp:GridView ID="gvAd" runat="server" AutoGenerateColumns="false" CssClass="table">
                 <Columns>
                     <asp:BoundField DataField="product" HeaderText="Produkt" />

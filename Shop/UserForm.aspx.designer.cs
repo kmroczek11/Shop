@@ -7,13 +7,11 @@
 // </generowany automatycznie>
 //------------------------------------------------------------------------------
 
-namespace Shop
-{
-
-
-    public partial class UserForm
-    {
-
+namespace Shop {
+    
+    
+    public partial class UserForm {
+        
         /// <summary>
         /// Kontrolka userForm.
         /// </summary>
@@ -22,7 +20,16 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm userForm;
-
+        
+        /// <summary>
+        /// Kontrolka logInBtn.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button logInBtn;
+        
         /// <summary>
         /// Kontrolka Message.
         /// </summary>
@@ -31,7 +38,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Message;
-
+        
         /// <summary>
         /// Kontrolka labelMessage.
         /// </summary>
@@ -40,7 +47,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labelMessage;
-
+        
         /// <summary>
         /// Kontrolka selectQuantity.
         /// </summary>
@@ -49,7 +56,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectQuantity;
-
+        
         /// <summary>
         /// Kontrolka cardProducts.
         /// </summary>
@@ -58,7 +65,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table cardProducts;
-
+        
         /// <summary>
         /// Kontrolka lbAd.
         /// </summary>
@@ -67,7 +74,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbAd;
-
+        
         /// <summary>
         /// Kontrolka gvAd.
         /// </summary>
@@ -76,7 +83,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvAd;
-
+        
         /// <summary>
         /// Kontrolka lbLogin.
         /// </summary>
@@ -85,7 +92,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbLogin;
-
+        
         /// <summary>
         /// Kontrolka txtFind.
         /// </summary>
@@ -94,7 +101,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFind;
-
+        
         /// <summary>
         /// Kontrolka btnFind.
         /// </summary>
@@ -103,7 +110,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnFind;
-
+        
         /// <summary>
         /// Kontrolka gvFindProducts.
         /// </summary>
@@ -112,7 +119,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvFindProducts;
-
+        
         /// <summary>
         /// Kontrolka DataList1.
         /// </summary>
@@ -121,7 +128,7 @@ namespace Shop
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList DataList1;
-
+        
         /// <summary>
         /// Kontrolka SqlDataSource1.
         /// </summary>
