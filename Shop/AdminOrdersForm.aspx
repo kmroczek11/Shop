@@ -47,6 +47,9 @@
                 <div class="col-sm-9">
                     <asp:TextBox ID="txtID" runat="server" CssClass="form-control" />
                 </div>
+                <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="ID zamówienia jest wymagane" ControlToValidate="txtID" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
+                </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">
@@ -55,12 +58,15 @@
                 <div class="col-sm-9">
                     <asp:TextBox ID="txtStatus" runat="server" CssClass="form-control" />
                 </div>
+                <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Status zamówienia jest wymagany" ControlToValidate="txtStatus" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
+                </div>
             </div>
             <div class="form-group row">
                 <div class="ml-auto">
                     <asp:Button Text="Zapisz" ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-primary" />
-                    <asp:Button Text="Usuń" ID="btnDelete" runat="server" OnClick="btnDelete_Click" CssClass="btn btn-primary" />
-                    <asp:Button Text="Wyczyść" ID="btnClear" runat="server" OnClick="btnClear_Click" CssClass="btn btn-primary" />
+                    <asp:Button Text="Usuń" CausesValidation="false" ID="btnDelete" runat="server" OnClick="btnDelete_Click" CssClass="btn btn-primary" />
+                    <asp:Button Text="Wyczyść" CausesValidation="false" ID="btnClear" runat="server" OnClick="btnClear_Click" CssClass="btn btn-primary" />
                 </div>
             </div>
             <div class="form-group row">
@@ -69,6 +75,7 @@
             <div class="form-group row">
                 <asp:Label Text="" ID="lblErrorMessage" runat="server" CssClass="form-text text-danger" />
             </div>
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Pola oznaczone na czerwono są wymagane" CssClass="form-text text-danger" />
             <br />
         </div>
         <div style="width: 80%; margin: 50px auto">
@@ -78,7 +85,7 @@
                     <asp:BoundField DataField="status" HeaderText="Status zamówienia" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton Text="Select" ID="lnkSelect" CssClass="card-link" CommandArgument='<%# Eval("Order_ID") %>' runat="server" OnClick="lnkSelect_OnClick" />
+                            <asp:LinkButton Text="Select" CausesValidation="false" ID="lnkSelect" CssClass="card-link" CommandArgument='<%# Eval("Order_ID") %>' runat="server" OnClick="lnkSelect_OnClick" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

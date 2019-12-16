@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -133,6 +134,8 @@ namespace Shop
 
         protected void logout(object sender, EventArgs e)
         {
+            Session.Abandon();
+            Session.Clear();
             Response.Cookies.Clear();
             Response.Redirect("UserForm.aspx");
         }

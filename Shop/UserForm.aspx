@@ -76,7 +76,8 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link ml-auto"><asp:Button ID="logInBtn" Text="" runat="server" CssClass="logBtn" /></a>
+                        <a class="nav-link ml-auto">
+                            <asp:Button ID="logInBtn" Text="" runat="server" CssClass="logBtn" /></a>
                     </li>
                 </ul>
             </div>
@@ -132,7 +133,7 @@
 
         <!-- Reklama -->
         <div class="card" style="margin: auto 5%; padding: 0 15px">
-            <asp:Label ID="lbAd" runat="server" CssClass="h3 font-weight-bold" style="text-align: center"></asp:Label>
+            <asp:Label ID="lbAd" runat="server" CssClass="h3 font-weight-bold" Style="text-align: center"></asp:Label>
             <asp:GridView ID="gvAd" runat="server" AutoGenerateColumns="false" CssClass="table">
                 <Columns>
                     <asp:BoundField DataField="product" HeaderText="Produkt" />
@@ -171,7 +172,7 @@
             </asp:GridView>
         </div>
 
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="productid" DataSourceID="SqlDataSource1"
+        <asp:DataList ID="dlProducts" runat="server" OnItemDataBound="Item_Bound" DataKeyField="productid" DataSourceID="SqlDataSource1"
             RepeatColumns="4" RepeatDirection="Horizontal">
             <ItemTemplate>
                 <div class="card" style="margin: 5px">
@@ -203,7 +204,7 @@
                         </tr>
                         <tr>
                             <td class="auto-style2">
-                                <asp:Button CommandArgument='<%# Eval("productid") %>' OnClick="openCart" ID="addToCart"
+                                <asp:Button CommandArgument='<%# Eval("productid") %>' OnClick="openCart" ID="addToCartBtn"
                                     runat="server" Text="Dodaj do koszyka" CssClass="btn btn-primary" />
                             </td>
                         </tr>

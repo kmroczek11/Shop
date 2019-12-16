@@ -47,6 +47,9 @@
                 <div class="col-sm-9">
                     <asp:TextBox ID="txtProduct" runat="server" CssClass="form-control" />
                 </div>
+                <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Produkt jest wymagany" ControlToValidate="txtProduct" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
+                </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">
@@ -54,6 +57,9 @@
                 </label>
                 <div class="col-sm-9">
                     <asp:TextBox ID="txtPrice" runat="server" CssClass="form-control" />
+                </div>
+                <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Cena jest wymagana" ControlToValidate="txtPrice" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="form-group row">
@@ -63,6 +69,9 @@
                 <div class="col-sm-9">
                     <asp:TextBox ID="txtCount" runat="server" CssClass="form-control" />
                 </div>
+                <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Ilość jest wymagana" ControlToValidate="txtCount" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
+                </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">
@@ -70,6 +79,9 @@
                 </label>
                 <div class="col-sm-9">
                     <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" />
+                </div>
+                <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Opis jest wymagany" ControlToValidate="txtDescription" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="form-group row">
@@ -79,6 +91,9 @@
                 <div class="col-sm-9">
                     <asp:TextBox ID="txtImage" runat="server" CssClass="form-control" />
                 </div>
+                <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Adres okładki jest wymagany" ControlToValidate="txtImage" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
+                </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">
@@ -87,12 +102,15 @@
                 <div class="col-sm-9">
                     <asp:TextBox ID="txtType" runat="server" CssClass="form-control" />
                 </div>
+                <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Typ gry jest wymagany" ControlToValidate="txtType" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
+                </div>
             </div>
             <div class="form-group row">
                 <div class="ml-auto">
                     <asp:Button Text="Zapisz" ID="btnSave" runat="server" OnClick="btnSave_Click" CssClass="btn btn-primary" />
-                    <asp:Button Text="Usuń" ID="btnDelete" runat="server" OnClick="btnDelete_Click" CssClass="btn btn-primary" />
-                    <asp:Button Text="Wyczyść" ID="btnClear" runat="server" OnClick="btnClear_Click" CssClass="btn btn-primary" />
+                    <asp:Button Text="Usuń" CausesValidation="false" ID="btnDelete" runat="server" OnClick="btnDelete_Click" CssClass="btn btn-primary" />
+                    <asp:Button Text="Wyczyść" CausesValidation="false" ID="btnClear" runat="server" OnClick="btnClear_Click" CssClass="btn btn-primary" />
                 </div>
             </div>
             <div class="form-group row">
@@ -101,6 +119,7 @@
             <div class="form-group row">
                 <asp:Label Text="" ID="lblErrorMessage" runat="server" CssClass="form-text text-danger" />
             </div>
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Pola oznaczone na czerwono są wymagane" CssClass="form-text text-danger" />
             <br />
         </div>
         <!-- Wyszukiwarka -->
@@ -133,7 +152,7 @@
                     <asp:BoundField DataField="type" HeaderText="Typ" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton Text="Select" ID="lnkSelect" CommandArgument='<%# Eval("ProductID") %>' runat="server" OnClick="lnkSelect_OnClick" CssClass="card-link" />
+                            <asp:LinkButton Text="Select" CausesValidation="false" ID="lnkSelect" CommandArgument='<%# Eval("ProductID") %>' runat="server" OnClick="lnkSelect_OnClick" CssClass="card-link" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

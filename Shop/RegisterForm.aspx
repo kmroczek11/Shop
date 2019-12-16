@@ -20,6 +20,9 @@
                 <div class="col-sm-9">
                     <asp:TextBox ID="tbLogin" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
+                 <div class="col-sm-1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Login jest wymagany" ControlToValidate="tbLogin" CssClass="form-text text-danger">*</asp:RequiredFieldValidator>
+                </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Hasło</label>
