@@ -11,10 +11,6 @@
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
     <style>
-        .logout {
-            background: none;
-            border: none;
-        }
     </style>
 </head>
 <body>
@@ -32,7 +28,7 @@
                     <li class="nav-item active"><a class="nav-link" href="AdminProductsForm.aspx">Produkty<span class="sr-only">(current)</span></a></li>
                     <li class="nav-item">
                         <a class="nav-link ml-auto">
-                            <asp:Button OnClick="logout" Text="Wyloguj" runat="server" CssClass="logout" /></a>
+                            <asp:Button OnClick="logout" Text="Wyloguj" CausesValidation="false" runat="server" CssClass="btn btn-secondary" /></a>
                     </li>
                 </ul>
             </div>

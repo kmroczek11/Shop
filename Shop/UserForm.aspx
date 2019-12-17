@@ -27,11 +27,6 @@
             padding: 0;
             font-size: 15px;
         }
-
-        .logout {
-            background: none;
-            border: none;
-        }
     </style>
     <script type="text/javascript">
         function ShowMessage(message, messagetype) {
@@ -77,7 +72,8 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link ml-auto">
-                            <asp:Button ID="logInBtn" Text="" runat="server" CssClass="logBtn" /></a>
+                            <asp:Button ID="logInBtn" Text="" runat="server" CssClass="logBtn btn btn-secondary" />
+                        </a>
                     </li>
                 </ul>
             </div>
