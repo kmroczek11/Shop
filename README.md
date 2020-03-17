@@ -1,1 +1,1 @@
-# Projekt sklepu internetowego wykonany w technologii .NET
+# Projekt sklepu internetowego wykonany w technologii .NET (ASP.NET)
