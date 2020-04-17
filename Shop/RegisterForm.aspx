@@ -10,9 +10,17 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
+    <style>
+        #registerForm {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server" style="width: 50%;margin: 50px auto">
+    <form id="registerForm" runat="server" style="width: 50%;margin: 50px auto">
         <asp:HiddenField ID="hfUserID" runat="server" />
         <div>
             <div class="form-group row">

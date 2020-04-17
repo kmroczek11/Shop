@@ -11,6 +11,11 @@
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
     <style>
+        .login-item {
+            position: absolute;
+            right: 0;
+        }
+
         .logout {
             background: none;
             border: none;
@@ -30,9 +35,10 @@
                     <li class="nav-item"><a class="nav-link" href="AdminUsersForm.aspx">Użytkownicy<span class="sr-only">(current)</span></a></li>
                     <li class="nav-item active"><a class="nav-link" href="AdminOrdersForm.aspx">Zamówienia<span class="sr-only">(current)</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="AdminProductsForm.aspx">Produkty<span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item">
+                    <li class="nav-item login-item">
                         <a class="nav-link ml-auto">
-                            <asp:Button OnClick="logout" Text="Wyloguj" runat="server" CssClass="logout" /></a>
+                            <asp:Button OnClick="logout" ID="logInBtn" Text="Wyloguj" runat="server" />
+                        </a>
                     </li>
                 </ul>
             </div>

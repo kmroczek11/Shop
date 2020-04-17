@@ -13,13 +13,13 @@ namespace Shop {
     public partial class RegisterForm {
         
         /// <summary>
-        /// Kontrolka form1.
+        /// Kontrolka registerForm.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm registerForm;
         
         /// <summary>
         /// Kontrolka hfUserID.

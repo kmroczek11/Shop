@@ -28,6 +28,11 @@
             font-size: 15px;
         }
 
+        .login-item {
+            position: absolute;
+            right: 0;
+        }
+
         .logout {
             background: none;
             border: none;
@@ -73,10 +78,10 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link ml-auto"><asp:Button ID="logInBtn" Text="" runat="server" CssClass="logBtn" /></a>
+                    <li class="nav-item login-item">
+                        <a class="nav-link ml-auto">
+                            <asp:Button ID="logInBtn" Text="" runat="server"/>
+                        </a>
                     </li>
                 </ul>
             </div>
