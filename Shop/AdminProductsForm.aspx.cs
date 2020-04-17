@@ -142,6 +142,8 @@ namespace Shop
 
         protected void logout(object sender, EventArgs e)
         {
+            Session.Abandon();
+            Session.Clear();
             Response.Cookies.Clear();
             Response.Redirect("UserForm.aspx");
         }

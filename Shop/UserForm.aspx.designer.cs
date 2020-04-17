@@ -121,13 +121,13 @@ namespace Shop {
         protected global::System.Web.UI.WebControls.GridView gvFindProducts;
         
         /// <summary>
-        /// Kontrolka DataList1.
+        /// Kontrolka dlProducts.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList1;
+        protected global::System.Web.UI.WebControls.DataList dlProducts;
         
         /// <summary>
         /// Kontrolka SqlDataSource1.

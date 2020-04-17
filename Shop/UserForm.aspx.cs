@@ -53,6 +53,15 @@ namespace Shop
 
         }
 
+        protected void Item_Bound(object sender, DataListItemEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Session["Login"] as string))
+            {
+                Button addToCartBtn = (Button)(e.Item.FindControl("addToCartBtn"));
+                addToCartBtn.Enabled = false;
+            }
+        }
+
         protected void login(object sender, EventArgs e)
         {
             Response.Redirect("LoginForm.aspx");
@@ -159,6 +168,7 @@ namespace Shop
                 MySqlCommand removebasket = sqlCon.CreateCommand();
                 removebasket.CommandText = "DELETE FROM basket WHERE customer_id='" + userId + "' AND product_id='" + productID + "'";
                 removebasket.ExecuteNonQuery();
+                showMessage("Produkt został usunięty z koszyka", MessageType.Success);
             }
         }
 
@@ -341,7 +351,7 @@ namespace Shop
                     wholeCost += sum;
                     message.Body += "Produkt: " + product.name + " Cena: " + product.price + " Ilość: " + product.selectedQuantity + " Suma: " + sum + Environment.NewLine;
                 }
-                message.Body += "Łącznie: " + wholeCost;
+                message.Body += "Łącznie: " + wholeCost + " zł";
 
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;

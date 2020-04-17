@@ -40,6 +40,15 @@ namespace Shop {
         protected global::System.Web.UI.WebControls.TextBox tbLogin;
         
         /// <summary>
+        /// Kontrolka RequiredFieldValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        
+        /// <summary>
         /// Kontrolka tbPassword.
         /// </summary>
         /// <remarks>
