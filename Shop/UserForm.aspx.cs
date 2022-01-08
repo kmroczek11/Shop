@@ -8,16 +8,13 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace Shop
 {
     public partial class UserForm : System.Web.UI.Page
     {
-        string connectionString = "Server=localhost;" +
-             //"Port=8080;" + 
-             "Database=shop;" +
-             "User=root;" +
-             "Password=;";
+        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
 
         public static List<Product> allProducts = new List<Product>();
         public static Product selectedProduct = null;

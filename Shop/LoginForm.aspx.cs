@@ -1,17 +1,13 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Configuration;
 
 namespace Shop
 {
     public partial class LoginForm : System.Web.UI.Page
     {
-        string connectionString = "Server=localhost;" +
-                //"Port=8080;" + 
-                "Database=shop;" +
-                "User=root;" +
-                "Password=;" +
-                "UseAffectedRows=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {
